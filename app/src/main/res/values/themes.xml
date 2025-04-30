@@ -1,9 +1,15 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.EcommerceWithApi" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
-    </style>
+    <style name="Base.Theme.EcommerceWithApi" parent="Theme.AppCompat.Light.NoActionBar">
+       <item name="android:windowLightStatusBar">true</item>
+        <item name="android:statusBarColor">@color/transparent</item>
+        <item name="windowNoTitle">true</item>
 
+    </style>
     <style name="Theme.EcommerceWithApi" parent="Base.Theme.EcommerceWithApi" />
+    <style name="mainActivityTheme" parent="Base.Theme.EcommerceWithApi">
+        <item name="android:windowBackground">@drawable/splash_background</item>
+
+      
+    </style>
 </resources>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Base.Theme.EcommerceWithApi" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:statusBarColor">@color/transparent</item>
+        <item name="windowNoTitle">true</item>
+
+    </style>
+    <style name="Theme.EcommerceWithApi" parent="Base.Theme.EcommerceWithApi" />
+    <style name="mainActivityTheme" parent="Theme.SplashScreen">
+    <item name="windowSplashScreenAnimationDuration">1000</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_launcher_foreground</item>
+        <item name="windowSplashScreenBackground">@color/blown</item>
+       <item name="postSplashScreenTheme">@style/Base.Theme.EcommerceWithApi</item>
+
+    </style>
+
+
+</resources>
