@@ -6,9 +6,10 @@ import android.util.Log;
 
 import com.github.pwittchen.reactivenetwork.library.rx2.ReactiveNetwork;
 
+import dagger.hilt.android.HiltAndroidApp;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
-
+@HiltAndroidApp
 public class MyApplication extends Application {
     private static String TAG="My App";
     @Override
