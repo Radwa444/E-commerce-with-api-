@@ -2,22 +2,55 @@ package com.example.e_commercewithapi;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.AnticipateInterpolator;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.splashscreen.SplashScreen;
+import androidx.lifecycle.ViewModelProvider;
 
+import com.example.e_commercewithapi.databinding.ActivityMainBinding;
+import com.example.e_commercewithapi.ui.auth.AuthActivity;
+import com.example.e_commercewithapi.ui.auth.Login.viewModel.LoginViewModel;
+
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
 public class MainActivity extends AppCompatActivity {
-
+private ActivityMainBinding activityMainBinding;
+private String data="radwa";
+private LoginViewModel loginViewModel;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-      SplashScreen.installSplashScreen(this);
+        SplashScreen.installSplashScreen(this);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        activityMainBinding=ActivityMainBinding.inflate(getLayoutInflater());
+        View view=activityMainBinding.getRoot();
+        setContentView(view);
+        loginViewModel=new ViewModelProvider(this).get(LoginViewModel.class);
         initSplashSreen();
+        toAuthActivity();
+        isLogin();
     }
+
+    private void isLogin() {
+        loginViewModel.saveToken("radwa saeed");
+        String token= loginViewModel.getToken();
+        Log.d("MainActivity",token);
+        Log.d("MainActivity",loginViewModel.checkLogin(token).toString());
+    }
+
+    private void toAuthActivity() {
+
+                    Intent intent=new Intent(MainActivity.this, AuthActivity.class);
+                    startActivity(intent);
+
+    }
+
+
 
     private void initSplashSreen() {
         if(Build.VERSION.SDK_INT>=Build.VERSION_CODES.S){
@@ -44,5 +77,11 @@ public class MainActivity extends AppCompatActivity {
                 slideUp.start();
             });
         }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        activityMainBinding=null;
     }
 }

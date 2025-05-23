@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     kotlin("plugin.serialization")
+    id("com.google.dagger.hilt.android")
 
 }
 
@@ -67,4 +68,16 @@ dependencies {
 
     // JSON serialization library, works with the Kotlin serialization plugin
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
+
+
+    //dataStore
+    implementation("androidx.datastore:datastore-core:1.1.6")
+    implementation("androidx.datastore:datastore-rxjava3:1.1.6")
+    implementation("androidx.datastore:datastore-rxjava2:1.1.6")
+
+    //Dependency injection
+    implementation("com.google.dagger:hilt-android:2.56.2")
+    annotationProcessor("com.google.dagger:hilt-android-compiler:2.56.2")
+
+
 }
