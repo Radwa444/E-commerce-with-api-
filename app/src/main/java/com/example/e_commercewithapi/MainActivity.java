@@ -32,7 +32,7 @@ private LoginViewModel loginViewModel;
         setContentView(view);
         loginViewModel=new ViewModelProvider(this).get(LoginViewModel.class);
         initSplashSreen();
-        onClickButton();
+        toAuthActivity();
         isLogin();
     }
 
@@ -43,13 +43,11 @@ private LoginViewModel loginViewModel;
         Log.d("MainActivity",loginViewModel.checkLogin(token).toString());
     }
 
-    private void onClickButton() {
-        activityMainBinding.intentButton.setOnClickListener(
-                it->{
+    private void toAuthActivity() {
+
                     Intent intent=new Intent(MainActivity.this, AuthActivity.class);
                     startActivity(intent);
-                }
-        );
+
     }
 
 
