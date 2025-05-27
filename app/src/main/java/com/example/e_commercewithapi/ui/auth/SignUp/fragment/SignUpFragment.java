@@ -1,66 +1,55 @@
 package com.example.e_commercewithapi.ui.auth.SignUp.fragment;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
-import com.example.e_commercewithapi.R;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link SignUpFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+import com.example.e_commercewithapi.data.models.SignUp.RequestSignUp;
+import com.example.e_commercewithapi.databinding.FragmentSignUpBinding;
+import com.example.e_commercewithapi.ui.auth.SignUp.viewModel.SignUpViewModel;
+
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
 public class SignUpFragment extends Fragment {
+    FragmentSignUpBinding binding;
+    SignUpViewModel signUpViewModel;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public SignUpFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment SignUpFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static SignUpFragment newInstance(String param1, String param2) {
-        SignUpFragment fragment = new SignUpFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
+    @Nullable
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+       binding=FragmentSignUpBinding.inflate(inflater,container,false);
+       signUpViewModel=new ViewModelProvider(this).get(SignUpViewModel.class);
+        //RequestSignUp requestSignUp=new RequestSignUp(binding.etNameSignUp.toString(),binding.etEmailSignUp.toString(),binding.etPasswordSignUp.toString(),"https://media.istockphoto.com/id/1495088043/vector/user-profile-icon-avatar-or-person-icon-profile-picture-portrait-symbol-default-portrait.jpg?s=1024x1024&w=is&k=20&c=oGqYHhfkz_ifeE6-dID6aM7bLz38C6vQTy1YcbgZfx8=");
+        observeViewModel();
+        setupSignUpClick();
+
+
+       return binding.getRoot();
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_sign_up, container, false);
+    private void observeViewModel() {
+        signUpViewModel.signUpStatus.observe(getViewLifecycleOwner(),status->{
+            Toast.makeText(getContext(), status, Toast.LENGTH_SHORT).show();
+        });
+    }
+
+    private void setupSignUpClick() {
+        binding.buttonSignUp.setOnClickListener(view -> {
+            String name=binding.etNameSignUp.getText().toString().trim();
+            String email=binding.etEmailSignUp.getText().toString().trim();
+            String password=binding.etPasswordSignUp.getText().toString().trim();
+            RequestSignUp requestSignUp=new RequestSignUp(name,email,password,"https://media.istockphoto.com/id/1495088043/vector/user-profile-icon-avatar-or-person-icon-profile-picture-portrait-symbol-default-portrait.jpg?s=1024x1024&w=is&k=20&c=oGqYHhfkz_ifeE6-dID6aM7bLz38C6vQTy1YcbgZfx8=");
+
+            signUpViewModel.signUp(requestSignUp);
+        });
+
     }
 }

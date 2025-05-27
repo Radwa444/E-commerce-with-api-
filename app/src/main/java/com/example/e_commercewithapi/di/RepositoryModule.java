@@ -1,5 +1,9 @@
 package com.example.e_commercewithapi.di;
 
+import com.example.e_commercewithapi.data.repository.auth.Login.LoginRepository;
+import com.example.e_commercewithapi.data.repository.auth.Login.LoginRepositoryImpl;
+import com.example.e_commercewithapi.data.repository.auth.signUp.SignUpRepository;
+import com.example.e_commercewithapi.data.repository.auth.signUp.SignUpRepositoryImpl;
 import com.example.e_commercewithapi.data.repository.user.repository.UserRepository;
 import com.example.e_commercewithapi.data.repository.user.repository.UserRepositoryImpl;
 
@@ -17,6 +21,12 @@ public abstract class RepositoryModule {
     @Binds
     @Singleton
     public abstract UserRepositoryImpl providerUserRepository(UserRepository userRepository);
+    @Binds
+    @Singleton
+    public abstract LoginRepository providerLoginRepository(LoginRepositoryImpl loginRepository);
+    @Binds
+    @Singleton
+    public abstract SignUpRepository providerSignUpRepository(SignUpRepositoryImpl signUpRepository);
 
 
 }
