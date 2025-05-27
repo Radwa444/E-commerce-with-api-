@@ -34,6 +34,11 @@ private LoginViewModel loginViewModel;
         initSplashSreen();
         toAuthActivity();
         isLogin();
+        getLoginViewModel();
+    }
+
+    public LoginViewModel getLoginViewModel() {
+        return loginViewModel;
     }
 
     private void isLogin() {
