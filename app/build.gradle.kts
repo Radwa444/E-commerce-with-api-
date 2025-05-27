@@ -79,5 +79,13 @@ dependencies {
     implementation("com.google.dagger:hilt-android:2.56.2")
     annotationProcessor("com.google.dagger:hilt-android-compiler:2.56.2")
 
+    //Retrofit
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation ("com.squareup.retrofit2:adapter-rxjava2:2.9.0")
+
+    // RxJava2
+    implementation ("io.reactivex.rxjava2:rxjava:2.2.21")
+    implementation ("io.reactivex.rxjava2:rxandroid:2.1.1")
 
 }

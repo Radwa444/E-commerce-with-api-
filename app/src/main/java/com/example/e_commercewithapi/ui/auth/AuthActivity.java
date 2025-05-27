@@ -10,6 +10,9 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.example.e_commercewithapi.R;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
 public class AuthActivity extends AppCompatActivity {
 
     @Override
