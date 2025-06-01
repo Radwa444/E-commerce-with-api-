@@ -15,4 +15,12 @@ public class ValidationExtenstions {
 
         return email != null && p.matcher(email).matches();
     }
+    public static Boolean isEmailValid(String email) {
+        return !email.isEmpty() && isValidEmail(email);
+    }
+
+    public static Boolean isPasswordValid(String password) {
+        return password.length() >= 6;
+    }
+
 }
