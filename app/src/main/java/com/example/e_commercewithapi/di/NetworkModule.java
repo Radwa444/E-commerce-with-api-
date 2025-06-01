@@ -1,5 +1,6 @@
 package com.example.e_commercewithapi.di;
 
+import com.example.e_commercewithapi.Config;
 import com.example.e_commercewithapi.data.dataSourse.remote.Api.ApiService;
 
 import javax.inject.Singleton;
@@ -15,12 +16,12 @@ import retrofit2.converter.gson.GsonConverterFactory;
 @Module
 @InstallIn(SingletonComponent.class)
 public class NetworkModule {
-    private final static String baseUrl="https://api.escuelajs.co/api/v1/";
+
     @Singleton
     @Provides
     Retrofit providerRetrofit(){
         return new Retrofit.Builder()
-                .baseUrl(baseUrl).addConverterFactory(GsonConverterFactory.create())
+                .baseUrl(Config.BASE_URL).addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build();
     }
