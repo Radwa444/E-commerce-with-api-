@@ -15,4 +15,6 @@
     <string name="create_your_account">Create Your Account</string>
     <string name="name">Name</string>
     <string name="re_enter_your_password">Re_Enter your Password</string>
+    <string name="loading">Loading</string>
+    <string name="enter_your_name">Enter your name</string>
 </resources>
