@@ -1,17 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.e_commercewithapi.ui.auth.signup.viewmodel.SignUpViewModel" />
+    </data>
     <ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <ImageView
+            <include
+                android:id="@+id/loadingCard"
+                layout="@layout/loading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/imageView2"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -22,7 +37,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/imageView7"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -34,7 +49,7 @@
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent" />
 
-            <ImageView
+            <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/imageView8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -78,30 +93,11 @@
                     android:layout_height="48dp"
                     android:layout_marginTop="8dp"
                     android:background="@drawable/container_eidt_text"
-                    android:hint="@string/enter_your_email"
-                    android:inputType=""
+                    android:hint="@string/enter_your_name"
+                    android:inputType="text"
+                    android:text="@={viewModel.name}"
                     tools:ignore="RtlSymmetry,VisualLintTextFieldSize" />
 
-                <TextView
-                    android:id="@+id/textViewPassword"
-                    style="@style/titleStyleText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="16dp"
-                    android:text="@string/password"
-
-                    />
-
-                <androidx.appcompat.widget.AppCompatEditText
-                    android:id="@+id/et_password_signUp"
-                    style="@style/EditTextStyle"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
-                    android:layout_marginTop="8dp"
-                    android:background="@drawable/container_eidt_text"
-                    android:hint="@string/enter_your_password"
-                    android:inputType="textPassword"
-                    tools:ignore="RtlSymmetry,VisualLintTextFieldSize" />
 
                 <TextView
                     android:id="@+id/textViewEmail"
@@ -121,6 +117,28 @@
                     android:background="@drawable/container_eidt_text"
                     android:hint="@string/enter_your_email"
                     android:inputType="textEmailAddress"
+                    android:text="@={viewModel.email}"
+                    tools:ignore="RtlSymmetry,VisualLintTextFieldSize" />
+                <TextView
+                    android:id="@+id/textViewPassword"
+                    style="@style/titleStyleText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/password"
+
+                    />
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/et_password_signUp"
+                    style="@style/EditTextStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@drawable/container_eidt_text"
+                    android:hint="@string/enter_your_password"
+                    android:inputType="textPassword"
+                    android:text="@={viewModel.password}"
                     tools:ignore="RtlSymmetry,VisualLintTextFieldSize" />
 
                 <TextView
@@ -142,6 +160,7 @@
                     android:background="@drawable/container_eidt_text"
                     android:hint="@string/re_enter_your_password"
                     android:inputType="textPassword"
+                    android:text="@={viewModel.re_password}"
                     tools:ignore="RtlSymmetry,VisualLintTextFieldSize" />
 
                 <androidx.appcompat.widget.AppCompatButton
@@ -185,5 +204,7 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </ScrollView>
+</layout>
+
 
 
