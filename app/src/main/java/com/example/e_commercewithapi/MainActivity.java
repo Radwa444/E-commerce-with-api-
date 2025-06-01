@@ -14,7 +14,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.e_commercewithapi.databinding.ActivityMainBinding;
 import com.example.e_commercewithapi.ui.auth.AuthActivity;
-import com.example.e_commercewithapi.ui.auth.Login.viewModel.LoginViewModel;
+import com.example.e_commercewithapi.ui.auth.login.viewmodel.LoginViewModel;
 
 import dagger.hilt.android.AndroidEntryPoint;
 
@@ -42,7 +42,7 @@ private LoginViewModel loginViewModel;
     }
 
     private void isLogin() {
-        loginViewModel.saveToken("radwa saeed");
+        ;
         String token= loginViewModel.getToken();
         Log.d("MainActivity",token);
         Log.d("MainActivity",loginViewModel.checkLogin(token).toString());

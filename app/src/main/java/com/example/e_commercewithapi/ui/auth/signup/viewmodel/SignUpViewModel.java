@@ -43,11 +43,11 @@ public class SignUpViewModel extends ViewModel {
             _signUpUiStates.setValue(new UiStates.Error("Please fill in all fields."));
             return;
         }
-        if (!isEmailValid(emailVal)) {
+        if (!ValidationExtenstions.isEmailValid(emailVal)) {
             _signUpUiStates.setValue(new UiStates.Error("Email is required."));
             return;
         }
-        if (!isPasswordValid(passVal)) {
+        if (!ValidationExtenstions.isPasswordValid(passVal)) {
             _signUpUiStates.setValue(new UiStates.Error("Password must be at least 6 characters."));
             return;
         }
@@ -72,13 +72,7 @@ public class SignUpViewModel extends ViewModel {
 
     }
 
-    private Boolean isEmailValid(String email) {
-        return !email.isEmpty() && ValidationExtenstions.isValidEmail(email);
-    }
 
-    private Boolean isPasswordValid(String password) {
-        return password.length() >= 6;
-    }
 
     private Boolean isRePasswordValid(String password, String rePassword) {
         return password.equals(rePassword);
