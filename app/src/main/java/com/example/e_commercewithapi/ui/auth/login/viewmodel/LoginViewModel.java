@@ -23,7 +23,7 @@ public class LoginViewModel extends ViewModel {
     public LiveData<UiStates> loginUiStates = _loginUiStates;
     public MutableLiveData<String> email = new MutableLiveData<>("");
     public MutableLiveData<String> password = new MutableLiveData<>("");
-    public String token;
+
 
     @Inject
     public LoginViewModel(UserRepositoryImpl userRepository, LoginRepository loginRepository) {
@@ -35,8 +35,8 @@ public class LoginViewModel extends ViewModel {
         return userRepository.getToken();
     }
 
-    public Boolean checkLogin(String token) {
-        return userRepository.checkLogin(token);
+    public Boolean checkLogin() {
+        return userRepository.checkLogin();
 
     }
 
@@ -63,9 +63,17 @@ public class LoginViewModel extends ViewModel {
                 .observeOn(AndroidSchedulers.mainThread()).subscribe(
                         repository -> {
                             _loginUiStates.setValue(new UiStates.Success("Login successful!"));
-                            token = repository.getAccess_token();
-                            userRepository.setToken(token);
-                            Log.d("LoginViewModel", userRepository.getToken());
+
+                            try {
+                               userRepository.setToken(repository.getAccess_token());
+                               userRepository.setRefreshToken(repository.getRefresh_token());
+                                Log.d("LoginViewModel", userRepository.getToken());
+                                Log.d("LoginViewModel", userRepository.getRefreshToken());
+                            } catch (Exception e) {
+                                Log.e("LoginViewModel",e.toString());
+                            }
+
+
                         },
                         throwable -> {
                             _loginUiStates.setValue(new UiStates.Error("Login failed: " + throwable.getMessage()));
