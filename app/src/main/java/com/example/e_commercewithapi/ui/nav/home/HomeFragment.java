@@ -1,4 +1,4 @@
-package com.example.e_commercewithapi.ui.home;
+package com.example.e_commercewithapi.ui.nav.home;
 
 import android.os.Bundle;
 

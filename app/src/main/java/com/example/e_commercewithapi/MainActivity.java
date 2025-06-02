@@ -15,6 +15,7 @@ import androidx.lifecycle.ViewModelProvider;
 import com.example.e_commercewithapi.databinding.ActivityMainBinding;
 import com.example.e_commercewithapi.ui.auth.AuthActivity;
 import com.example.e_commercewithapi.ui.auth.login.viewmodel.LoginViewModel;
+import com.example.e_commercewithapi.ui.nav.NavActivity;
 
 import dagger.hilt.android.AndroidEntryPoint;
 
@@ -32,21 +33,26 @@ private LoginViewModel loginViewModel;
         setContentView(view);
         loginViewModel=new ViewModelProvider(this).get(LoginViewModel.class);
         initSplashSreen();
-        toAuthActivity();
         isLogin();
-        getLoginViewModel();
+
     }
 
-    public LoginViewModel getLoginViewModel() {
-        return loginViewModel;
-    }
+
+
 
     private void isLogin() {
-        ;
-        String token= loginViewModel.getToken();
-        Log.d("MainActivity",token);
-        Log.d("MainActivity",loginViewModel.checkLogin(token).toString());
+        if(loginViewModel.getToken()!=null){
+           toAuthActivity();
+        }else {
+            toAuthActivity();
+        }
     }
+    private void toNavActivity(){
+        Intent intent=new Intent(MainActivity.this, NavActivity.class);
+        startActivity(intent
+        );
+    }
+
 
     private void toAuthActivity() {
 

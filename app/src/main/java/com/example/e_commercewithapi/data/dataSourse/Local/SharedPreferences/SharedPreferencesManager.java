@@ -1,15 +1,10 @@
 package com.example.e_commercewithapi.data.dataSourse.Local.SharedPreferences;
 
-import static android.content.Context.MODE_PRIVATE;
-
-import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.example.e_commercewithapi.Config;
 public class SharedPreferencesManager {
-public static String E_COMMERCE_PREFERCES="e_commerce_preference";
-public static String TOKEN="token";
-public boolean is_login=false;
-private final SharedPreferences sharedPreferences;
+    private final SharedPreferences sharedPreferences;
 private final SharedPreferences.Editor editor ;
 
 public SharedPreferencesManager(SharedPreferences sharedPreferences){
@@ -17,17 +12,23 @@ public SharedPreferencesManager(SharedPreferences sharedPreferences){
     this.editor=sharedPreferences.edit();
 }
 public void setToken(String is_token){
-    editor.putString(TOKEN,is_token);
+    editor.putString(Config.TOKEN,is_token);
     editor.apply();
 }
 public String getToken(){
-    return sharedPreferences.getString(TOKEN,null);
+    return sharedPreferences.getString(Config.TOKEN,null);
+}
+public void setRefreshToken(String refresh_token){
+    editor.putString(Config.REFRESH_TOKEN,refresh_token);
+    editor.apply();
+}
+public String getRefreshToken(){
+    return sharedPreferences.getString(Config.REFRESH_TOKEN,null);
 }
 public boolean checkLogin(String token){
     token=getToken();
-    if(token==null) {
-        return false;
-    }else return true;
+    return token != null;
 }
+
 
 }
