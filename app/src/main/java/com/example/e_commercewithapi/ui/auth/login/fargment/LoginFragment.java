@@ -47,6 +47,7 @@ public class LoginFragment extends Fragment {
         binding.onClickLogin.setOnClickListener(
                 view -> {
                     loginViewModel.login();
+                    loginViewModel.getUserProfile();
                 }
         );
     }

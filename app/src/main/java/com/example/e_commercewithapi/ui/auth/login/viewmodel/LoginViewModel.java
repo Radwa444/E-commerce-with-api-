@@ -83,6 +83,22 @@ public class LoginViewModel extends ViewModel {
 
 
     }
+    @SuppressLint("CheckResult")
+    public void getUserProfile(){
+        userRepository.getUserProfile().subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread()
+                ).subscribe(
+                        response ->{
+                            RequestLogin requestLogin=new RequestLogin(response.getEmail(),response.getPassword());
+                            loginRepository.login(requestLogin);
+                            Log.d("LoginViewModel",response.getEmail());
+
+                        },throwable -> {
+                            Log.d("LoginViewModel",throwable.toString());
+
+                        }
+                );
+    }
 
 
 }

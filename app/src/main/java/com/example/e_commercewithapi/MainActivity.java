@@ -42,8 +42,9 @@ private LoginViewModel loginViewModel;
 
     private void isLogin() {
         if(loginViewModel.getToken()!=null){
-           toAuthActivity();
+            toNavActivity();
         }else {
+            loginViewModel.getUserProfile();
             toAuthActivity();
         }
     }
