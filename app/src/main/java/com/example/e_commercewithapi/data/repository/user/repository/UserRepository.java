@@ -1,20 +1,24 @@
 package com.example.e_commercewithapi.data.repository.user.repository;
-
-import com.example.e_commercewithapi.data.dataSourse.Local.KeyStore.EncryptionManager.EncryptionManager;
 import com.example.e_commercewithapi.data.dataSourse.Local.KeyStore.EncryptionManager.EncryptionManagerImpl;
 import com.example.e_commercewithapi.data.dataSourse.Local.SharedPreferences.SharedPreferencesManager;
+import com.example.e_commercewithapi.data.dataSourse.remote.Api.ApiService;
+import com.example.e_commercewithapi.data.models.SignUp.ResponseSignUp;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
 
+import io.reactivex.Single;
+
 @Singleton
 public class UserRepository implements UserRepositoryImpl {
-    SharedPreferencesManager sharedPreferencesManager;
-    EncryptionManagerImpl encryptionManager;
+   private final ApiService apiService;
+  private final   SharedPreferencesManager sharedPreferencesManager;
+  private final   EncryptionManagerImpl encryptionManager;
     @Inject
-    UserRepository(SharedPreferencesManager sharedPreferencesManager,EncryptionManagerImpl encryptionManager){
+    UserRepository(SharedPreferencesManager sharedPreferencesManager,EncryptionManagerImpl encryptionManager,ApiService apiService){
         this.sharedPreferencesManager=sharedPreferencesManager;
         this.encryptionManager=encryptionManager;
+        this.apiService=apiService;
     }
 
     @Override
@@ -31,7 +35,9 @@ public class UserRepository implements UserRepositoryImpl {
     @Override
     public String getToken() {
         try {
-            return decrypt(sharedPreferencesManager.getToken());
+            String token=sharedPreferencesManager.getToken();
+            if ((token == null) || token.isEmpty())return null;
+            return decrypt(token);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -41,7 +47,7 @@ public class UserRepository implements UserRepositoryImpl {
     @Override
     public Boolean checkLogin() {
         String encryptedToken=sharedPreferencesManager.getToken();
-        return encryptedToken!=null && encryptedToken.isEmpty();
+        return encryptedToken!=null && !encryptedToken.isEmpty();
     }
 
     @Override
@@ -66,7 +72,9 @@ public class UserRepository implements UserRepositoryImpl {
     @Override
     public String getRefreshToken() {
        try {
-          return decrypt( sharedPreferencesManager.getRefreshToken());
+           String token=sharedPreferencesManager.getRefreshToken();
+           if ((token == null) || token.isEmpty())return null;
+           return decrypt(token);
        } catch (Exception e) {
            throw new RuntimeException(e);
        }
@@ -77,4 +85,14 @@ public class UserRepository implements UserRepositoryImpl {
         sharedPreferencesManager.setToken(null);
         sharedPreferencesManager.setRefreshToken(null);
     }
+
+    @Override
+    public Single<ResponseSignUp> getUserProfile() {
+        try {
+            return apiService.getUserProfile("Bearer " +getToken());
+        } catch (Exception e) {
+            return Single.error(e);
+        }
+    }
+
 }
