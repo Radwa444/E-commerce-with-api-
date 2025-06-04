@@ -92,4 +92,14 @@ public class EncryptionManager implements EncryptionManagerImpl {
         System.arraycopy(encryptedBytes, 0, combined, iv.length, encryptedBytes.length);
         return combined;
     }
+    public boolean hasKey() {
+        try {
+            KeyStore keyStore = KeyStore.getInstance(ANDROID_KEY_STORE);
+            keyStore.load(null);
+            return keyStore.containsAlias(KEY_ALIAS);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

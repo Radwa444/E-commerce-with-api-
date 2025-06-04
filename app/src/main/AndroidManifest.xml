@@ -16,6 +16,7 @@
         android:theme="@style/Theme.EcommerceWithApi"
         android:usesCleartextTraffic="true"
         tools:targetApi="31" >
+
         <activity
             android:name=".ui.nav.NavActivity"
             android:exported="false"

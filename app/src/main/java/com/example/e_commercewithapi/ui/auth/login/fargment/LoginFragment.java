@@ -63,7 +63,7 @@ public class LoginFragment extends Fragment {
 
             } else if (uiStates instanceof  UiStates.Success) {
                 loadingCard.setVisibility(View.GONE);
-                Toast.makeText(getContext(),((UiStates.Success) uiStates).message,Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(),((UiStates.Success) uiStates).message.toString(),Toast.LENGTH_LONG).show();
 
             }
                 }
