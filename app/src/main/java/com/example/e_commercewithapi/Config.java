@@ -6,11 +6,14 @@ public class Config {
     public static final String  USERS_URL="users/";
     public static final String  LOGIN_URL="auth/login";
     public static final String TOKEN_URL="auth/profile";
+    public static final String CATEGORIES_URL="categories";
 
     //SharedPreferences
     public static final String E_COMMERCE_PREFERCES="e_commerce_preference";
     public static final String TOKEN="token";
     public static final String REFRESH_TOKEN="refresh_token";
+
+
 
 
 

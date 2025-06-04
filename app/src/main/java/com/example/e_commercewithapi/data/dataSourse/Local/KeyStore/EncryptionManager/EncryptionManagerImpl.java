@@ -16,4 +16,5 @@ import javax.crypto.NoSuchPaddingException;
 public interface EncryptionManagerImpl {
      String encrypt(String plainText) throws  Exception;
      String decrypt(String cipherText) throws  Exception;
+     public boolean hasKey();
 }

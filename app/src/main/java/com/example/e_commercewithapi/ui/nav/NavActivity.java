@@ -12,10 +12,11 @@ import com.example.e_commercewithapi.databinding.ActivityNavBinding;
 
 import com.example.e_commercewithapi.R;
 
+import dagger.hilt.android.AndroidEntryPoint;
+@AndroidEntryPoint
 public class NavActivity extends AppCompatActivity {
 
-
-private ActivityNavBinding binding;
+    private ActivityNavBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -24,7 +24,9 @@ public class UserRepository implements UserRepositoryImpl {
     @Override
     public void setToken(String token) {
         try {
-            sharedPreferencesManager.setToken(encrypt(token));
+            if (!encryptionManager.hasKey()) {
+                sharedPreferencesManager.setToken(encrypt(token));
+            }
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
