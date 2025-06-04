@@ -1,13 +1,14 @@
 package com.example.e_commercewithapi.data.dataSourse.remote.Api;
-
-import android.content.Context;
-
 import com.example.e_commercewithapi.Config;
+import com.example.e_commercewithapi.data.models.Categories.ResponseCategories;
 import com.example.e_commercewithapi.data.models.Login.RequestLogin;
 import com.example.e_commercewithapi.data.models.Login.ResponseLogin;
 import com.example.e_commercewithapi.data.models.SignUp.RequestSignUp;
 import com.example.e_commercewithapi.data.models.SignUp.ResponseSignUp;
 
+import java.util.List;
+
+import io.reactivex.Observable;
 import io.reactivex.Single;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
@@ -23,5 +24,8 @@ public interface ApiService {
     Single<ResponseSignUp> signUp(@Body RequestSignUp requestSignUp);
     @GET(Config.TOKEN_URL)
     Single<ResponseSignUp> getUserProfile(@Header("Authorization")String token);
+    @GET(Config.CATEGORIES_URL)
+    Observable<List<ResponseCategories>> getCategories();
+
 
 }

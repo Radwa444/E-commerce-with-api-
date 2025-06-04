@@ -47,7 +47,7 @@ public class SignUpFragment extends Fragment {
                 loadingCard.setVisibility(View.VISIBLE);
             } else if (state instanceof UiStates.Success) {
                 loadingCard.setVisibility(View.GONE);
-                Toast.makeText(getContext(), ((UiStates.Success) state).message, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), ((UiStates.Success) state).message.toString(), Toast.LENGTH_SHORT).show();
             } else if (state instanceof UiStates.Error) {
                 loadingCard.setVisibility(View.GONE);
                 Toast.makeText(getContext(), ((UiStates.Error) state).error, Toast.LENGTH_SHORT).show();
