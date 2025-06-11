@@ -8,15 +8,14 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.e_commercewithapi.data.models.Categories.ResponseCategories;
-import com.example.e_commercewithapi.databinding.BannerInHomeBinding;
+import com.example.e_commercewithapi.data.models.Categories.Category;
 import com.example.e_commercewithapi.databinding.CategoriesItemInHomeBinding;
 
 import java.util.List;
 
 public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.CategoriesViewHolder> {
-    List<ResponseCategories> categories;
-    public CategoriesAdapter(List<ResponseCategories> categories){
+    List<Category> categories;
+    public CategoriesAdapter(List<Category> categories){
         this.categories =categories;
 
     }
@@ -31,7 +30,7 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Ca
     public void onBindViewHolder(@NonNull CategoriesViewHolder holder, int position) {
 
         try {
-            ResponseCategories categoriesREC=categories.get(position);
+            Category categoriesREC=categories.get(position);
 
             Log.d("Adapter", "Binding: " + categoriesREC.getName());
             Glide.with(holder.binding.imageView10.getContext())
