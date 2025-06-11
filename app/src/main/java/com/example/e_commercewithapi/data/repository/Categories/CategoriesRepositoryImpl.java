@@ -1,9 +1,8 @@
 package com.example.e_commercewithapi.data.repository.Categories;
 
-import android.util.Log;
-
 import com.example.e_commercewithapi.data.dataSourse.remote.Api.ApiService;
-import com.example.e_commercewithapi.data.models.Categories.ResponseCategories;
+import com.example.e_commercewithapi.data.models.Categories.Category;
+import com.example.e_commercewithapi.data.models.Prodect.Product;
 
 import java.util.List;
 
@@ -11,6 +10,8 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import io.reactivex.Observable;
+import io.reactivex.Single;
+
 @Singleton
 public class CategoriesRepositoryImpl implements CategoriesRepository{
     ApiService apiService;
@@ -18,10 +19,25 @@ public class CategoriesRepositoryImpl implements CategoriesRepository{
     CategoriesRepositoryImpl(ApiService apiService){
         this.apiService=apiService;    }
     @Override
-    public Observable<List<ResponseCategories>> getCategories() {
+    public Observable<List<Category>> getCategories() {
 
             return apiService.getCategories();
 
 
+    }
+
+    @Override
+    public Single<Category> getCategoryById(int categoryId) {
+        return apiService.getCategoryById(categoryId);
+    }
+
+    @Override
+    public Single<Category> getCategoryBySlug(String categorySlug) {
+        return apiService.getCategoryBySlug(categorySlug);
+    }
+
+    @Override
+    public Observable<List<Product>> getAllProductByCategory(int categoryId) {
+        return apiService.getAllProductByCategory(categoryId);
     }
 }

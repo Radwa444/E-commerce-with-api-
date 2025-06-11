@@ -10,7 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.example.e_commercewithapi.data.models.Categories.ResponseCategories;
+import com.example.e_commercewithapi.data.models.Categories.Category;
 import com.example.e_commercewithapi.databinding.FragmentHomeBinding;
 import com.example.e_commercewithapi.ui.nav.home.adapter.BannerAdapter;
 import com.example.e_commercewithapi.ui.nav.home.adapter.CategoriesAdapter;
@@ -27,7 +27,7 @@ public class HomeFragment extends Fragment {
 FragmentHomeBinding binding;
 private HomeViewModel homeViewModel;
     private static final String TAG = "HomeFragment";
-    @Nullable
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding=FragmentHomeBinding.inflate(getLayoutInflater(),container,false);
@@ -45,7 +45,7 @@ private HomeViewModel homeViewModel;
             if(state instanceof UiStates.Error){
                 Log.d(TAG,((UiStates.Error<?>) state).error);
             } else if (state instanceof UiStates.Success) {
-                List<ResponseCategories> categories=((UiStates.Success<List<ResponseCategories>>) state).message;
+                List<Category> categories=((UiStates.Success<List<Category>>) state).message;
                 setUpCategories(categories);
 
                     Log.d(TAG, categories.get(1).getImage());
@@ -58,7 +58,7 @@ private HomeViewModel homeViewModel;
 
     }
 
-    private void setUpCategories(List<ResponseCategories> categories) {
+    private void setUpCategories(List<Category> categories) {
         CategoriesAdapter categoriesAdapter=new CategoriesAdapter(categories);;
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
             binding.recCategories.setLayoutManager(layoutManager);
