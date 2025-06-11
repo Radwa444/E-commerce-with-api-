@@ -1,6 +1,6 @@
 package com.example.e_commercewithapi.data.models.Categories;
 
-public class ResponseCategories {
+public class Category {
 //    {
 //        "id": 1,
 //            "name": "Clothes",
@@ -11,7 +11,7 @@ public class ResponseCategories {
  private String name;
  private String slug;
  private String image;
- public ResponseCategories(int id,String name,String slug,String image){
+ public Category(int id, String name, String slug, String image){
   this.id=id;
   this.name=name;
   this.slug=slug;
