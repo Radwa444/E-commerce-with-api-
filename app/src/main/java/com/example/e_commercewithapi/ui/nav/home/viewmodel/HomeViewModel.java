@@ -30,6 +30,7 @@ public class HomeViewModel extends ViewModel {
     private final MutableLiveData<UiStates<List<Product>>> _productsUiState=new MutableLiveData<>();
     public MutableLiveData<UiStates<List<Product>>> productsUiState=_productsUiState;
     private static final String TAG="HomeViewModel";
+    public MutableLiveData<UiStates<Integer>> idCategory=new MutableLiveData<>();
 
     @Inject
     HomeViewModel(CategoriesRepository categoriesRepository ,ProductRepository productRepository){

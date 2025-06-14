@@ -5,11 +5,16 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavAction;
+import androidx.navigation.NavHostController;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.e_commercewithapi.R;
 import com.example.e_commercewithapi.data.models.Categories.Category;
 import com.example.e_commercewithapi.databinding.FragmentHomeBinding;
 import com.example.e_commercewithapi.ui.nav.home.adapter.BannerAdapter;
@@ -32,8 +37,14 @@ private HomeViewModel homeViewModel;
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding=FragmentHomeBinding.inflate(getLayoutInflater(),container,false);
         homeViewModel=new ViewModelProvider(this).get(HomeViewModel.class);
-
+        toCategoryFragment();
         return binding.getRoot();
+    }
+
+    private void toCategoryFragment() {
+        binding.textViewSeeAll.setOnClickListener(
+                view -> NavHostFragment.findNavController(this).navigate(R.id.action_homeFragment_to_categoryFragment)
+        );
     }
 
     @Override
@@ -59,7 +70,8 @@ private HomeViewModel homeViewModel;
     }
 
     private void setUpCategories(List<Category> categories) {
-        CategoriesAdapter categoriesAdapter=new CategoriesAdapter(categories);;
+        CategoriesAdapter categoriesAdapter=new CategoriesAdapter(categories);
+
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
             binding.recCategories.setLayoutManager(layoutManager);
             binding.recCategories.setAdapter(categoriesAdapter);

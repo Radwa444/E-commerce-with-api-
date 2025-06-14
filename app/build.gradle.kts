@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     kotlin("plugin.serialization")
     id("com.google.dagger.hilt.android")
+    id("androidx.navigation.safeargs")
 
 }
 
@@ -68,6 +69,8 @@ dependencies {
 
     // JSON serialization library, works with the Kotlin serialization plugin
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.3")
+    // أو آخر إصدار
+
 
     //implementation ("com.google.android.gms:play-services-ads:24.3.0")
     implementation ("androidx.viewpager2:viewpager2:1.1.0")

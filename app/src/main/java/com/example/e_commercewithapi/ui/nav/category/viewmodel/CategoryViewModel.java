@@ -40,5 +40,21 @@ public class CategoryViewModel extends ViewModel {
                         .subscribe(products -> _productsUiState.setValue(new UiStates.Success<>(products)),
                                 throwable -> _productsUiState.setValue(new UiStates.Error<>(throwable.toString())));
             }
+            @SuppressLint("CheckResult")
+            public void allProductsByCategory(int idCategory){
+
+                categoriesRepository.getAllProductByCategory(idCategory)
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(
+                                products -> _productsUiState.setValue(new UiStates.Success<>(products)),
+                                throwable -> {
+                                    _productsUiState.setValue(new UiStates.Error<>(throwable.toString()));
+                                }
+                        );
+            }
+
+
+
 
 }

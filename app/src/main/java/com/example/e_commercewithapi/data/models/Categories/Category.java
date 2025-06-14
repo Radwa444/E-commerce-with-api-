@@ -11,11 +11,13 @@ public class Category {
  private String name;
  private String slug;
  private String image;
- public Category(int id, String name, String slug, String image){
+ private  boolean selected;
+ public Category(int id, String name, String slug, String image,boolean selected){
   this.id=id;
   this.name=name;
   this.slug=slug;
   this.image=image;
+  this.selected =selected;
  }
 
     public int getId() {
@@ -48,5 +50,14 @@ public class Category {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+
+    public boolean isSelected() {
+        return selected;
+    }
+
+    public void setSelected(boolean selected) {
+        this.selected = selected;
     }
 }
