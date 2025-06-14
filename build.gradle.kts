@@ -5,9 +5,15 @@ plugins {
     id("com.google.dagger.hilt.android") version "2.56.2" apply false
 
 
+
 }
 buildscript {
+    repositories {
+        google()
+    }
     dependencies {
-        classpath ("com.google.dagger:hilt-android-gradle-plugin:2.56.2") // أو أحدث نسخة
+        classpath ("com.google.dagger:hilt-android-gradle-plugin:2.56.2")
+        val nav_version = "2.9.0"
+        classpath("androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version")
     }
 }

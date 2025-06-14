@@ -31,9 +31,10 @@ public class Product {
     private String slug;
     private String price;
     private String description;
-    private List<Category> category;
+    private Category category;
     private List<String> images;
-   public Product(int id,String slug,String price,String description,List<Category> category,List<String> images,String title){
+   private Boolean selected;
+   public Product(int id,String slug,String price,String description,Category category,List<String> images,String title,Boolean selected){
        this.id=id;
        this.slug=slug;
        this.price=price;
@@ -41,6 +42,7 @@ public class Product {
        this.category=category;
        this.images=images;
        this.title=title;
+       this.selected=selected;
    }
 
     public int getId() {
@@ -83,11 +85,11 @@ public class Product {
         this.description = description;
     }
 
-    public List<Category> getCategory() {
+    public Category getCategory() {
         return category;
     }
 
-    public void setCategory(List<Category> category) {
+    public void setCategory(Category category) {
         this.category = category;
     }
 
@@ -97,5 +99,13 @@ public class Product {
 
     public void setImages(List<String> images) {
         this.images = images;
+    }
+
+    public Boolean getSelected() {
+        return selected;
+    }
+
+    public void setSelected(Boolean selected) {
+        this.selected = selected;
     }
 }

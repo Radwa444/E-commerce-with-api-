@@ -1,5 +1,6 @@
 package com.example.e_commercewithapi.ui.nav.home.adapter;
 
+import android.annotation.SuppressLint;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
@@ -26,6 +27,7 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Ca
         return new CategoriesViewHolder(binding);
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     @Override
     public void onBindViewHolder(@NonNull CategoriesViewHolder holder, int position) {
 
@@ -36,13 +38,28 @@ public class CategoriesAdapter extends RecyclerView.Adapter<CategoriesAdapter.Ca
             Glide.with(holder.binding.imageView10.getContext())
                     .load(categoriesREC.getImage())
                     .into(holder.binding.imageView10);
+            holder.binding.imageView10.setSelected(categoriesREC.isSelected());
+            if(categoriesREC.isSelected()) {
+                Log.d("adapterCatgory", String.valueOf(categoriesREC.getId()));
 
+            }
+           holder.binding.imageView10.setOnClickListener(view -> {
+               for(Category items :categories){
+                items.setSelected(false);
+               }
+               categoriesREC.setSelected(true);
+
+               notifyDataSetChanged();
+
+           });
 
         } catch (RuntimeException e) {
             Log.e("Adapter", "Binding: " + e.toString());
         }
 
     }
+
+
 
     @Override
     public int getItemCount() {
