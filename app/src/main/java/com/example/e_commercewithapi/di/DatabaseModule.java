@@ -22,7 +22,7 @@ public class DatabaseModule {
     @Provides
     @Singleton
     public SharedPreferences providerSharedPerferences(@ApplicationContext Context context){
-         return context.getSharedPreferences(Config.E_COMMERCE_PREFERCES,Context.MODE_PRIVATE);
+         return context.getSharedPreferences(Config.E_COMMERCE_PREFERENCES,Context.MODE_PRIVATE);
     }
     @Provides
     @Singleton

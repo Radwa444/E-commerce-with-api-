@@ -63,4 +63,9 @@
     <string name="search_product">Search Product</string>
     <string name="category">Category</string>
     <string name="see_all">See all</string>
+    <string name="blue_beanies">Blue Beanies</string>
+    <string name="_50_25">$50,25</string>
+    <string name="offer">%21 off</string>
+    <string name="_0_4">0.4</string>
+    <string name="product_details">Product Details</string>
 </resources>
