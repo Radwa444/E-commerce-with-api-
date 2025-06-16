@@ -54,11 +54,20 @@ public class Product {
     }
 
     public String getTitle() {
-        return title;
+        StringBuilder newTitle=new StringBuilder();
+        for (int i=0;i<this.title.length();i++){
+            newTitle.append(this.title.charAt(i));
+            if((i+1)%20==0){
+                newTitle.append("\n");
+            }
+        }
+
+       return String.valueOf(newTitle);
     }
 
     public void setTitle(String title) {
-        this.title = title;
+
+       this.title = title;
     }
 
     public String getSlug() {

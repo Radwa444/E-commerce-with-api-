@@ -9,5 +9,13 @@
     <color name="light_Brown">#BA9279</color>
     <color name="snow_Color">#FFFAF8</color>
     <color name="red">#FE4334</color>
+    <color name="LightGray">#DADADA</color>
+    <color name="Dark_gray">#484646</color>
+    <color name="moderate_red">#BF4D44</color>
+    <color name="soft_beige">#F1EEEC</color>
+    <color name="yellow">#FFC833</color>
+    <color name="soft_brick_red">#BF4D4414</color>
+
+
 
 </resources>

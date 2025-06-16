@@ -68,4 +68,18 @@
     <string name="offer">%21 off</string>
     <string name="_0_4">0.4</string>
     <string name="product_details">Product Details</string>
+    <string name="textview">TextView</string>
+    <string name="color">Color</string>
+    <string name="icon_add">+</string>
+    <string name="decrease">-</string>
+    <string name="qty">Qty:</string>
+    <string name="size">Size</string>
+    <string name="s">s</string>
+    <string name="_1">1</string>
+    <string name="did_the_item_fit_well">Did the item fit well?</string>
+    <string name="reviews">Reviews</string>
+    <string name="_4">(4)</string>
+    <string name="test_review">This t-shirt caught my eye instantly! The design is both stylish and unique, making it stand out effortlessly.</string>
+    <string name="buy_now">Buy Now</string>
+    <string name="add_to_cart">Add To Cart</string>
 </resources>

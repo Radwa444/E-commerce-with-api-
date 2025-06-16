@@ -32,7 +32,7 @@
     </fragment>
     <fragment
         android:id="@+id/productDetailsFragment"
-        android:name="com.example.e_commercewithapi.ProductDetailsFragment"
+        android:name="com.example.e_commercewithapi.ui.nav.detailsproduct.fragment.ProductDetailsFragment"
         android:label="fragment_product_details"
         tools:layout="@layout/fragment_product_details" >
         <argument
