@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.bumptech.glide.Glide;
+import com.example.e_commercewithapi.R;
 import com.example.e_commercewithapi.data.models.Prodect.Colors;
 import com.example.e_commercewithapi.data.models.Prodect.Product;
 import com.example.e_commercewithapi.data.models.Prodect.Review;
@@ -113,13 +114,19 @@ public class ProductDetailsFragment extends Fragment {
     }
 
     private void observeViewModel() {
+        View loading=binding.getRoot().findViewById(R.id.loading_in_product_details);
         productDetailsViewModel.uiStateProduct.observe(getViewLifecycleOwner(),productUiStates -> {
-            if(productUiStates instanceof UiStates.Error){
+          if (productUiStates instanceof  UiStates.Loading){
+              loading.setVisibility(View.VISIBLE);
+          }
+           else if(productUiStates instanceof UiStates.Error){
                 Log.e(TAG,((UiStates.Error<Product>) productUiStates).error);
+                loading.setVisibility(View.GONE);
             } else if (productUiStates instanceof  UiStates.Success) {
                 Product product=((UiStates.Success<Product>) productUiStates).message;
                 setUpProduct(product);
                 setUpGroupImage(product);
+                loading.setVisibility(View.GONE);
 
 
             }
