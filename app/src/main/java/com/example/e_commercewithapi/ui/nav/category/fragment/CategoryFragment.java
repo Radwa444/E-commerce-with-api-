@@ -1,5 +1,4 @@
 package com.example.e_commercewithapi.ui.nav.category.fragment;
-
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -11,10 +10,12 @@ import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import com.example.e_commercewithapi.R;
 import com.example.e_commercewithapi.data.models.Categories.Category;
 import com.example.e_commercewithapi.data.models.Prodect.Product;
@@ -35,6 +36,7 @@ public class CategoryFragment extends Fragment {
     FragmentCategoryBinding binding;
     HomeViewModel homeViewModel;
     CategoryViewModel categoryViewModel;
+    boolean isFirstTime = true;
 
     private static final String TAG = "CategoryFragment";
 
@@ -44,6 +46,7 @@ public class CategoryFragment extends Fragment {
         binding = FragmentCategoryBinding.inflate(getLayoutInflater(), container, false);
         homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
         categoryViewModel = new ViewModelProvider(this).get(CategoryViewModel.class);
+        Log.d(TAG+" _idCategory", String.valueOf(categoryViewModel.get_idCategory()));
         toHomeFragment();
         return binding.getRoot();
     }
@@ -58,21 +61,22 @@ public class CategoryFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         homeViewModel.getCategories();
-         observeHomeViewModel();
-         observeCategoryViewModel();
-
+        observeHomeViewModel();
+        observeCategoryViewModel();
 
 
     }
 
     private void observeCategoryViewModel() {
-        categoryViewModel.productsUiState.observe(getViewLifecycleOwner(),listUiStates -> {
-            if (listUiStates instanceof  UiStates.Error){
-                Log.e(TAG,((UiStates.Error<List<Product>>) listUiStates).error);
-            }else if (listUiStates instanceof UiStates.Success){
-                Log.d(TAG,((UiStates.Success<List<Product>>) listUiStates).message.toString());
-                List<Product> products=((UiStates.Success<List<Product>>) listUiStates).message;
+        categoryViewModel.productsUiState.observe(getViewLifecycleOwner(), listUiStates -> {
+            if (listUiStates instanceof UiStates.Error) {
+                Log.e(TAG, ((UiStates.Error<List<Product>>) listUiStates).error);
+
+            } else if (listUiStates instanceof UiStates.Success) {
+                Log.d(TAG, ((UiStates.Success<List<Product>>) listUiStates).message.toString());
+                List<Product> products = ((UiStates.Success<List<Product>>) listUiStates).message;
                 setUpProduct(products);
+
 
             }
         });
@@ -85,7 +89,11 @@ public class CategoryFragment extends Fragment {
 
             } else if (listUiStates instanceof UiStates.Success) {
                 List<Category> categories = ((UiStates.Success<List<Category>>) listUiStates).message;
-                categoryViewModel.getAllProduct();
+                if (isFirstTime) {
+                    categoryViewModel.getAllProduct();
+                    isFirstTime = false;
+                }
+
                 setUpCategories(categories);
 
             }
@@ -94,7 +102,16 @@ public class CategoryFragment extends Fragment {
 
 
     private void setUpCategories(List<Category> categories) {
-        ItemsIsSelected adapter = new ItemsIsSelected(categories, this::getIdProducts);
+        for (Category category : categories) {
+            if (category.getId() == categoryViewModel.get_idCategory())
+                category.setSelected(true);
+
+        }
+        ItemsIsSelected adapter = new ItemsIsSelected(categories, idCategory -> {
+            getIdProducts(idCategory);
+            categoryViewModel.set_idCategory(idCategory);
+
+        });
         CategoriesAdapter adapter1 = new CategoriesAdapter(categories);
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
         LinearLayoutManager layoutManager2 = new LinearLayoutManager(getContext(), LinearLayoutManager.HORIZONTAL, false);
@@ -104,20 +121,21 @@ public class CategoryFragment extends Fragment {
         binding.itemsImage.setAdapter(adapter1);
 
     }
-      private void setUpProduct(List<Product> products){
-          ProductAdapter adapter=new ProductAdapter(products,idProduct -> {
-              Log.d(TAG,String.valueOf(idProduct));
-              NavDirections action=CategoryFragmentDirections.actionCategoryFragmentToProductDetailsFragment(idProduct);
-              NavHostFragment.findNavController(this).navigate(action);
-          },idProduct -> {
 
-          });
-         // LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
-          GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2);
-          binding.itemsProductsRec.setLayoutManager(gridLayoutManager);
-          binding.itemsProductsRec.setAdapter(adapter);
+    private void setUpProduct(List<Product> products) {
+        ProductAdapter adapter = new ProductAdapter(products, idProduct -> {
+            Log.d(TAG, String.valueOf(idProduct));
+            NavDirections action = CategoryFragmentDirections.actionCategoryFragmentToProductDetailsFragment(idProduct);
+            NavHostFragment.findNavController(this).navigate(action);
+        }, idProduct -> {
 
-      }
+        });
+        // LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(getContext(), 2);
+        binding.itemsProductsRec.setLayoutManager(gridLayoutManager);
+        binding.itemsProductsRec.setAdapter(adapter);
+
+    }
 
     private void getIdProducts(int idCategory) {
         categoryViewModel.allProductsByCategory(idCategory);
