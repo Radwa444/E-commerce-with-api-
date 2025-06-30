@@ -1,6 +1,6 @@
 package com.example.e_commercewithapi.data.repository.user.repository;
 
-import com.example.e_commercewithapi.data.models.SignUp.ResponseSignUp;
+import com.example.e_commercewithapi.data.models.local.SignUp.ResponseSignUp;
 
 import io.reactivex.Single;
 

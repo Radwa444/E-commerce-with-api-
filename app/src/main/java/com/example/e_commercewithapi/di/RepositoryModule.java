@@ -8,6 +8,8 @@ import com.example.e_commercewithapi.data.repository.auth.Login.LoginRepository;
 import com.example.e_commercewithapi.data.repository.auth.Login.LoginRepositoryImpl;
 import com.example.e_commercewithapi.data.repository.auth.signUp.SignUpRepository;
 import com.example.e_commercewithapi.data.repository.auth.signUp.SignUpRepositoryImpl;
+import com.example.e_commercewithapi.data.repository.cart.CartRepository;
+import com.example.e_commercewithapi.data.repository.cart.CartRepositoryImpl;
 import com.example.e_commercewithapi.data.repository.user.repository.UserRepository;
 import com.example.e_commercewithapi.data.repository.user.repository.UserRepositoryImpl;
 
@@ -37,5 +39,8 @@ public abstract class RepositoryModule {
     @Binds
     @Singleton
     public abstract ProductRepository providerProductRepository(ProductRepositoryImpl productRepository);
+    @Binds
+    @Singleton
+    public abstract CartRepository providerCartRepository(CartRepositoryImpl cartRepository);
 
 }

@@ -2,7 +2,6 @@ package com.example.e_commercewithapi.ui.nav.category.adapter;
 
 import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -10,7 +9,7 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.e_commercewithapi.R;
-import com.example.e_commercewithapi.data.models.Categories.Category;
+import com.example.e_commercewithapi.data.models.local.Categories.Category;
 import com.example.e_commercewithapi.databinding.ItemTextIsSelectedBinding;
 
 import java.util.List;

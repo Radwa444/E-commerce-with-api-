@@ -38,9 +38,11 @@ android {
         dataBinding = true
         viewBinding = true
     }
+
 }
 
 dependencies {
+    implementation(libs.room.rxjava2)
     val nav_version = "2.9.0"
 
 
@@ -94,5 +96,13 @@ dependencies {
     // RxJava2
     implementation ("io.reactivex.rxjava2:rxjava:2.2.21")
     implementation ("io.reactivex.rxjava2:rxandroid:2.1.1")
+
+    //room database
+    implementation("androidx.room:room-runtime:2.7.2")
+    annotationProcessor("androidx.room:room-compiler:2.7.2")
+    implementation("androidx.room:room-rxjava2:2.7.2")
+    implementation ("it.xabaras.android:recyclerview-swipedecorator:1.2")
+    implementation("com.github.zerobranch:SwipeLayout:1.3.1")
+
 
 }

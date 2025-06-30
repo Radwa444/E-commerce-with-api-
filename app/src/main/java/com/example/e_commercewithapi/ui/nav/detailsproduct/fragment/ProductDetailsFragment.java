@@ -4,12 +4,11 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.collection.ArrayMap;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.NavDirections;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -18,10 +17,10 @@ import android.view.ViewGroup;
 
 import com.bumptech.glide.Glide;
 import com.example.e_commercewithapi.R;
-import com.example.e_commercewithapi.data.models.Prodect.Colors;
-import com.example.e_commercewithapi.data.models.Prodect.Product;
-import com.example.e_commercewithapi.data.models.Prodect.Review;
-import com.example.e_commercewithapi.data.models.Prodect.Size;
+import com.example.e_commercewithapi.data.models.local.Prodect.Colors;
+import com.example.e_commercewithapi.data.models.local.Prodect.Product;
+import com.example.e_commercewithapi.data.models.local.Prodect.Review;
+import com.example.e_commercewithapi.data.models.local.Prodect.Size;
 import com.example.e_commercewithapi.databinding.FragmentProductDetailsBinding;
 import com.example.e_commercewithapi.ui.nav.detailsproduct.adapters.GroupColorAdapter;
 import com.example.e_commercewithapi.ui.nav.detailsproduct.adapters.GroupImageAdapter;
@@ -50,8 +49,27 @@ public class ProductDetailsFragment extends Fragment {
         productDetailsViewModel=new ViewModelProvider(this).get(ProductDetailsViewModel.class);
         productDetailsViewModel.getProduct(productId);
         OnClickBackButton();
+        onClickIconCart(productId);
+        onClickAddCart(productId);
         return binding.getRoot();
 
+    }
+
+
+
+    private void onClickAddCart(int productId) {
+        binding.AddToCart.setOnClickListener(view -> {
+            NavDirections action=ProductDetailsFragmentDirections.actionProductDetailsFragmentToCartFragment(productId);
+            NavHostFragment.findNavController(this).navigate(action);
+        });
+    }
+
+    private void onClickIconCart(int productId) {
+        binding.addAndGoToCart.setOnClickListener(view -> {
+            NavDirections action=ProductDetailsFragmentDirections.actionProductDetailsFragmentToCartFragment(productId);
+            NavHostFragment.findNavController(this).navigate(action);
+            //   NavHostFragment.findNavController(this).navigate(R.id.action_productDetailsFragment_to_cartFragment);
+        });
     }
 
     private void OnClickBackButton() {
@@ -86,6 +104,7 @@ public class ProductDetailsFragment extends Fragment {
         setUpGroupSize(sizeList);
         setUpReview(reviewList);
         setUpGroupColor(colorList);
+
 
     }
 
@@ -147,9 +166,10 @@ public class ProductDetailsFragment extends Fragment {
                 .load(product.getImages().get(0))
                 .into(binding.imageViewImageProduct);
         binding.textViewTitle.setText(product.getTitle());
-        binding.textViewPrice.setText(product.getPrice());
+        binding.textViewPrice.setText(String.valueOf(product.getPrice()));
         binding.productDetails.setText(product.getDescription());
     }
+
 
 
 }

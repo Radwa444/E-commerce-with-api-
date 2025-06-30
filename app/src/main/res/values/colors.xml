@@ -2,7 +2,7 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="transparent">#000000</color>
+    <color name="transparent">#000</color>
     <color name="blown">#321616</color>
     <color name="grey">#979797</color>
     <color name="warmGray">#918F8D</color>
@@ -15,7 +15,6 @@
     <color name="soft_beige">#F1EEEC</color>
     <color name="yellow">#FFC833</color>
     <color name="soft_brick_red">#BF4D4414</color>
-
-
-
+    <color name="pale_camel">#E3C2A5</color>
+    <color name="my_custom_red">#69BF4D44</color>
 </resources>

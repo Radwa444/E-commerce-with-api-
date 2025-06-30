@@ -1,8 +1,8 @@
 package com.example.e_commercewithapi.data.repository.auth.signUp;
 
 import com.example.e_commercewithapi.data.dataSourse.remote.Api.ApiService;
-import com.example.e_commercewithapi.data.models.SignUp.RequestSignUp;
-import com.example.e_commercewithapi.data.models.SignUp.ResponseSignUp;
+import com.example.e_commercewithapi.data.models.local.SignUp.RequestSignUp;
+import com.example.e_commercewithapi.data.models.local.SignUp.ResponseSignUp;
 
 import javax.inject.Inject;
 

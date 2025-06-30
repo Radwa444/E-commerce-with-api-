@@ -6,7 +6,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.example.e_commercewithapi.data.models.SignUp.RequestSignUp;
+import com.example.e_commercewithapi.data.models.local.SignUp.RequestSignUp;
 import com.example.e_commercewithapi.data.repository.auth.signUp.SignUpRepository;
 import com.example.e_commercewithapi.utils.UiStates;
 import com.example.e_commercewithapi.utils.ValidationExtenstions;

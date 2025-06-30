@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zerobranch.layout.SwipeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipe_layout"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+
+    app:swipeDirection="left"
+    app:draggedItem="@+id/foreground_layout"
+    android:layout_marginHorizontal="16dp"
+    android:layout_marginTop="8dp"
+    app:rightItem="@+id/delete_layout">
+
+        <FrameLayout
+            android:id="@+id/delete_layout"
+            android:layout_width="80dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/container_delete_in_cart"
+            android:layout_gravity="end"
+            android:layout_marginStart="8dp"
+
+            tools:ignore="MissingConstraints">
+
+            <ImageView
+                android:id="@+id/btn_delete"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="center"
+                android:src="@drawable/outline_delete_24"/>
+        </FrameLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/foreground_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:background="@drawable/style_contaner_product"
+            >
+            <ImageView
+                android:id="@+id/imageView16"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/guideline9"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/userName_in_cart"
+                style="@style/textNameProduct"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/textview"
+                app:layout_constraintStart_toEndOf="@+id/imageView16"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/price_in_cart"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="@string/textview"
+                android:textColor="@color/red"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@+id/userName_in_cart"
+                app:layout_constraintTop_toBottomOf="@+id/userName_in_cart" />
+
+            <ImageView
+                android:id="@+id/imageView18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="32dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/love_button" />
+
+            <TextView
+                android:id="@+id/textView20"
+                style="@style/TextSeeAll"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/qty"
+                app:layout_constraintEnd_toStartOf="@+id/button_decrease"
+                app:layout_constraintTop_toBottomOf="@+id/imageView18" />
+
+            <Button
+                android:id="@+id/button_decrease"
+                android:layout_width="24dp"
+                android:layout_height="22dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/btn_decrease"
+                android:fontFamily="@font/poppins_bold"
+                android:text="@string/decrease"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/textView20"
+                app:layout_constraintEnd_toStartOf="@+id/number_product"
+                app:layout_constraintTop_toTopOf="@+id/textView20" />
+
+            <TextView
+                android:id="@+id/number_product"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="@string/_1"
+                app:layout_constraintBottom_toBottomOf="@+id/button_decrease"
+                app:layout_constraintEnd_toStartOf="@+id/button_add"
+                app:layout_constraintTop_toTopOf="@+id/button_decrease" />
+
+            <Button
+                android:id="@+id/button_add"
+                android:layout_width="24dp"
+                android:layout_height="22dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/add_button"
+                android:fontFamily="@font/poppins_bold"
+                android:text="@string/icon_add"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/number_product"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/number_product" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent=".32" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</com.zerobranch.layout.SwipeLayout>

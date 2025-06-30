@@ -5,7 +5,7 @@ import android.annotation.SuppressLint;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.example.e_commercewithapi.data.models.Prodect.Product;
+import com.example.e_commercewithapi.data.models.local.Prodect.Product;
 import com.example.e_commercewithapi.data.repository.Categories.CategoriesRepository;
 import com.example.e_commercewithapi.data.repository.Products.ProductRepository;
 import com.example.e_commercewithapi.utils.UiStates;

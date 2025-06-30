@@ -1,11 +1,11 @@
 package com.example.e_commercewithapi.data.dataSourse.remote.Api;
-import com.example.e_commercewithapi.Config;
-import com.example.e_commercewithapi.data.models.Categories.Category;
-import com.example.e_commercewithapi.data.models.Login.RequestLogin;
-import com.example.e_commercewithapi.data.models.Login.ResponseLogin;
-import com.example.e_commercewithapi.data.models.Prodect.Product;
-import com.example.e_commercewithapi.data.models.SignUp.RequestSignUp;
-import com.example.e_commercewithapi.data.models.SignUp.ResponseSignUp;
+import com.example.e_commercewithapi.utils.Config;
+import com.example.e_commercewithapi.data.models.local.Categories.Category;
+import com.example.e_commercewithapi.data.models.local.Login.RequestLogin;
+import com.example.e_commercewithapi.data.models.local.Login.ResponseLogin;
+import com.example.e_commercewithapi.data.models.local.Prodect.Product;
+import com.example.e_commercewithapi.data.models.local.SignUp.RequestSignUp;
+import com.example.e_commercewithapi.data.models.local.SignUp.ResponseSignUp;
 
 import java.util.List;
 

@@ -14,7 +14,6 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.e_commercewithapi.R;
-import com.example.e_commercewithapi.data.models.Login.RequestLogin;
 import com.example.e_commercewithapi.databinding.FragmentLoginBinding;
 import com.example.e_commercewithapi.ui.auth.login.viewmodel.LoginViewModel;
 import com.example.e_commercewithapi.utils.UiStates;

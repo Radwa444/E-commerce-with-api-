@@ -12,7 +12,6 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.e_commercewithapi.R;
-import com.example.e_commercewithapi.data.models.SignUp.RequestSignUp;
 import com.example.e_commercewithapi.databinding.FragmentSignUpBinding;
 import com.example.e_commercewithapi.ui.auth.signup.viewmodel.SignUpViewModel;
 import com.example.e_commercewithapi.utils.UiStates;

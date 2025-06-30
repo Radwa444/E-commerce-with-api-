@@ -6,10 +6,9 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.e_commercewithapi.data.models.Prodect.Colors;
+import com.example.e_commercewithapi.data.models.local.Prodect.Colors;
 import com.example.e_commercewithapi.databinding.GroupColorBinding;
 
 import java.util.List;
