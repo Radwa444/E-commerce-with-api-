@@ -1,4 +1,4 @@
-package com.example.e_commercewithapi.data.models.Categories;
+package com.example.e_commercewithapi.data.models.local.Categories;
 
 public class Category {
 //    {

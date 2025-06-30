@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
-import com.example.e_commercewithapi.data.models.Categories.Category;
+import com.example.e_commercewithapi.data.models.local.Categories.Category;
 import com.example.e_commercewithapi.databinding.CategoriesItemInHomeBinding;
 
 import java.util.List;

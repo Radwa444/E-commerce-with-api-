@@ -1,8 +1,7 @@
 package com.example.e_commercewithapi.data.repository.auth.Login;
 
-import com.example.e_commercewithapi.data.models.Login.RequestLogin;
-import com.example.e_commercewithapi.data.models.Login.ResponseLogin;
-import com.example.e_commercewithapi.data.models.SignUp.ResponseSignUp;
+import com.example.e_commercewithapi.data.models.local.Login.RequestLogin;
+import com.example.e_commercewithapi.data.models.local.Login.ResponseLogin;
 
 import io.reactivex.Single;
 

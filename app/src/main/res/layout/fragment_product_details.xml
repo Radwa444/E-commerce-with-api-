@@ -89,6 +89,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
       <androidx.cardview.widget.CardView
+          android:id="@+id/add_and_go_to_cart"
         android:layout_width="40dp"
         android:layout_height="40dp"
         app:cardCornerRadius="360dp"

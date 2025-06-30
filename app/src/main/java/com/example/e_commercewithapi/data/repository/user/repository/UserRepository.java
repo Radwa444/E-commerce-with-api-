@@ -2,7 +2,7 @@ package com.example.e_commercewithapi.data.repository.user.repository;
 import com.example.e_commercewithapi.data.dataSourse.Local.KeyStore.EncryptionManager.EncryptionManagerImpl;
 import com.example.e_commercewithapi.data.dataSourse.Local.SharedPreferences.SharedPreferencesManager;
 import com.example.e_commercewithapi.data.dataSourse.remote.Api.ApiService;
-import com.example.e_commercewithapi.data.models.SignUp.ResponseSignUp;
+import com.example.e_commercewithapi.data.models.local.SignUp.ResponseSignUp;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;

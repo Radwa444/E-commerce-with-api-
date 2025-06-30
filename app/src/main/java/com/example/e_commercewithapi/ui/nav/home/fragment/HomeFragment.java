@@ -5,8 +5,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.NavAction;
-import androidx.navigation.NavHostController;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import android.util.Log;
@@ -15,7 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.e_commercewithapi.R;
-import com.example.e_commercewithapi.data.models.Categories.Category;
+import com.example.e_commercewithapi.data.models.local.Categories.Category;
 import com.example.e_commercewithapi.databinding.FragmentHomeBinding;
 import com.example.e_commercewithapi.ui.nav.home.adapter.BannerAdapter;
 import com.example.e_commercewithapi.ui.nav.home.adapter.CategoriesAdapter;

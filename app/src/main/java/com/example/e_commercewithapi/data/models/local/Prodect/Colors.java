@@ -1,4 +1,4 @@
-package com.example.e_commercewithapi.data.models.Prodect;
+package com.example.e_commercewithapi.data.models.local.Prodect;
 
 public class Colors {
     private String color;

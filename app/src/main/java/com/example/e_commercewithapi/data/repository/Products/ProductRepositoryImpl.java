@@ -1,7 +1,7 @@
 package com.example.e_commercewithapi.data.repository.Products;
 
 import com.example.e_commercewithapi.data.dataSourse.remote.Api.ApiService;
-import com.example.e_commercewithapi.data.models.Prodect.Product;
+import com.example.e_commercewithapi.data.models.local.Prodect.Product;
 
 import java.util.List;
 
