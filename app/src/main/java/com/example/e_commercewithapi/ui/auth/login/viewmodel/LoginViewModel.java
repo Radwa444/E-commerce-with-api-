@@ -4,7 +4,7 @@ import android.util.Log;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
-import com.example.e_commercewithapi.data.models.Login.RequestLogin;
+import com.example.e_commercewithapi.data.models.local.Login.RequestLogin;
 import com.example.e_commercewithapi.data.repository.auth.Login.LoginRepository;
 import com.example.e_commercewithapi.data.repository.user.repository.UserRepositoryImpl;
 import com.example.e_commercewithapi.utils.UiStates;

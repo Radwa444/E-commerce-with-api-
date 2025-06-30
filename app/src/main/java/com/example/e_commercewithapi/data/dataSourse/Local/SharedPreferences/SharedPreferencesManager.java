@@ -2,7 +2,7 @@ package com.example.e_commercewithapi.data.dataSourse.Local.SharedPreferences;
 
 import android.content.SharedPreferences;
 
-import com.example.e_commercewithapi.Config;
+import com.example.e_commercewithapi.utils.Config;
 public class SharedPreferencesManager {
     private final SharedPreferences sharedPreferences;
 private final SharedPreferences.Editor editor ;

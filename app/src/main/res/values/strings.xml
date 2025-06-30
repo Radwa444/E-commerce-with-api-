@@ -82,4 +82,22 @@
     <string name="test_review">This t-shirt caught my eye instantly! The design is both stylish and unique, making it stand out effortlessly.</string>
     <string name="buy_now">Buy Now</string>
     <string name="add_to_cart">Add To Cart</string>
+    <string name="my_cart">My Cart</string>
+    <string name="shipping_address">Shipping Address</string>
+    <string name="home">Home</string>
+    <string name="change">Change</string>
+    <string name="order_list">Order List</string>
+    <string name="delete">delete</string>
+    <string name="your_cart_is_empty_now">Your cart is empty now.</string>
+    <string name="shop_and_explore">Shop and explore.</string>
+    <string name="the_best_things_start_with_a_single_choice">the best things start with a single choice!</string>
+    <string name="enter_cupon_code">Enter Cupon Code</string>
+    <string name="apply">Apply</string>
+    <string name="items">Items</string>
+    <string name="shipping">Shipping</string>
+    <string name="coupon_discount">Coupon Discount</string>
+    <string name="price">0</string>
+    <string name="_40">40</string>
+    <string name="ttotal_cost">Total Cost</string>
+    <string name="check_out">Check Out</string>
 </resources>

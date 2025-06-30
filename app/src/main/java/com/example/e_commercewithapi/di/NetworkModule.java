@@ -1,6 +1,6 @@
 package com.example.e_commercewithapi.di;
 
-import com.example.e_commercewithapi.Config;
+import com.example.e_commercewithapi.utils.Config;
 import com.example.e_commercewithapi.data.dataSourse.remote.Api.ApiService;
 
 import javax.inject.Singleton;

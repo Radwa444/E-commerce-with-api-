@@ -1,4 +1,4 @@
-package com.example.e_commercewithapi.data.models.Login;
+package com.example.e_commercewithapi.data.models.local.Login;
 
 public class ResponseLogin {
     private String access_token;

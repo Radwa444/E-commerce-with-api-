@@ -1,6 +1,6 @@
-package com.example.e_commercewithapi.data.models.Prodect;
+package com.example.e_commercewithapi.data.models.local.Prodect;
 
-import com.example.e_commercewithapi.data.models.Categories.Category;
+import com.example.e_commercewithapi.data.models.local.Categories.Category;
 
 import java.util.List;
 
@@ -29,12 +29,14 @@ public class Product {
     private int id;
     private String title;
     private String slug;
-    private String price;
+    private int price;
     private String description;
     private Category category;
     private List<String> images;
    private Boolean selected;
-   public Product(int id,String slug,String price,String description,Category category,List<String> images,String title,Boolean selected){
+    private int counter=0;
+    private float itemPrices=1f;
+   public Product(int id,String slug,int price,String description,Category category,List<String> images,String title,Boolean selected,int counter,float itemPrices){
        this.id=id;
        this.slug=slug;
        this.price=price;
@@ -43,6 +45,8 @@ public class Product {
        this.images=images;
        this.title=title;
        this.selected=selected;
+       this.counter=counter;
+       this.itemPrices=itemPrices;
    }
 
     public int getId() {
@@ -78,11 +82,11 @@ public class Product {
         this.slug = slug;
     }
 
-    public String getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 
@@ -116,5 +120,21 @@ public class Product {
 
     public void setSelected(Boolean selected) {
         this.selected = selected;
+    }
+
+    public int getCounter() {
+        return counter;
+    }
+
+    public void setCounter(int counter) {
+        this.counter = counter;
+    }
+
+    public float getItemPrices() {
+        return itemPrices;
+    }
+
+    public void setItemPrices(float itemPrices) {
+        this.itemPrices = itemPrices;
     }
 }

@@ -9,7 +9,7 @@ import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.e_commercewithapi.R;
-import com.example.e_commercewithapi.data.models.Prodect.Size;
+import com.example.e_commercewithapi.data.models.local.Prodect.Size;
 import com.example.e_commercewithapi.databinding.GroupSizeBinding;
 
 import java.util.List;

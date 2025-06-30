@@ -1,4 +1,4 @@
-package com.example.e_commercewithapi.data.models.SignUp;
+package com.example.e_commercewithapi.data.models.local.SignUp;
 
 public class RequestSignUp {
 //     "name": "Nicolas",

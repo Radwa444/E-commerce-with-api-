@@ -6,10 +6,11 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavDirections;
-import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,8 +18,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.e_commercewithapi.R;
-import com.example.e_commercewithapi.data.models.Categories.Category;
-import com.example.e_commercewithapi.data.models.Prodect.Product;
+import com.example.e_commercewithapi.data.mappers.ProductMapper;
+import com.example.e_commercewithapi.data.models.local.Categories.Category;
+import com.example.e_commercewithapi.data.models.local.Prodect.Product;
+import com.example.e_commercewithapi.data.models.remote.product.ProductEntity;
 import com.example.e_commercewithapi.databinding.FragmentCategoryBinding;
 import com.example.e_commercewithapi.ui.nav.category.adapter.ItemsIsSelected;
 import com.example.e_commercewithapi.ui.nav.category.adapter.ProductAdapter;

@@ -5,7 +5,8 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
-import com.example.e_commercewithapi.data.models.Prodect.Product;
+import com.example.e_commercewithapi.data.models.local.Prodect.Product;
+import com.example.e_commercewithapi.data.models.remote.product.ProductEntity;
 import com.example.e_commercewithapi.databinding.ItemProdcutBinding;
 
 import java.util.List;
@@ -14,6 +15,9 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     private final List<Product> listProduct;
     private final OnProductClickListener listener;
     private final OnProductClickListener onClickCart;
+
+
+
     @FunctionalInterface
     public interface OnProductClickListener {
         void listener(int idProduct);
@@ -37,7 +41,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.ProductV
     public void onBindViewHolder(@NonNull ProductAdapter.ProductViewHolder holder, int position) {
         Product itemOfProduct = listProduct.get(position);
         holder.binding.textNameProduct.setText(itemOfProduct.getTitle());
-        holder.binding.textPriceProduct.setText(itemOfProduct.getPrice());
+        holder.binding.textPriceProduct.setText(String.valueOf(itemOfProduct.getPrice()));
         Glide.with(holder.binding.imageProduct.getContext())
                 .load(itemOfProduct.getImages().get(0))
                 .into(holder.binding.imageProduct);

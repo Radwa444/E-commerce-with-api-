@@ -1,4 +1,4 @@
-package com.example.e_commercewithapi;
+package com.example.e_commercewithapi.utils;
 
 public class Config {
     //URL
@@ -14,7 +14,8 @@ public class Config {
     public static final String TOKEN="token";
     public static final String REFRESH_TOKEN="refresh_token";
 
-
+    //room database
+    public static final String CART_DB="cart_db";
 
 
 
