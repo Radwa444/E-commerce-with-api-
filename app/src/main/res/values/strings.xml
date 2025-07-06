@@ -100,4 +100,8 @@
     <string name="_40">40</string>
     <string name="ttotal_cost">Total Cost</string>
     <string name="check_out">Check Out</string>
+    <string name="fragment_home">fragment_home</string>
+    <string name="wish">Wish</string>
+    <string name="cart">Cart</string>
+    <string name="Account">Account</string>
 </resources>
